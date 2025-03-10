@@ -12,7 +12,7 @@ fetch('museos.geojson')
     document.querySelectorAll('div.sitio').forEach((element) =>{
         console.log('clic')
         element.addEventListener('click',()=>{
-            map.setView([element.dataset.lat,element.dataset.lng])
+            map.setView([element.dataset.lat,element.dataset.lng],17)
         })
     } )
   })
@@ -45,7 +45,7 @@ if(document.querySelector("#mapa")){
         data.features.forEach( (el)=>{
             let marker = L.marker( [el.geometry.coordinates[1],el.geometry.coordinates[0]], {icon:museumIcon} ).addTo(map);
             marker.addEventListener("click",()=>{
-                map.setView([el.geometry.coordinates[1],el.geometry.coordinates[0]])
+                map.setView([el.geometry.coordinates[1],el.geometry.coordinates[0]],17)
 
                 if (!el.properties.URL){
                     Swal.fire({
